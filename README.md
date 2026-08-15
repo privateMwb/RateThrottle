@@ -150,7 +150,8 @@ RateThrottle/
 │       └── RateLimiter.h
 │
 ├── src/
-│   └── RateLimiter.cpp
+│   └── ratethrottle/
+│       └── RateLimiter.cpp
 │
 ├── libs/
 │   └── internal/
@@ -165,17 +166,6 @@ RateThrottle/
 ├── benchmarks/
 │   ├── support/
 │   ├── suite/
-│   │   ├── Access/
-│   │   │   └── contention.cpp
-│   │   ├── Core/
-│   │   │   └── allow.cpp
-│   │   ├── Lifecycle/
-│   │   │   └── construction.cpp
-│   │   ├── Scaling/
-│   │   │   ├── capacity_scaling.cpp
-│   │   │   └── eviction_pressure.cpp
-│   │   ├── Utility/
-│   │   └── README.md
 │   ├── bench_main.cpp
 │   └── CMakeLists.txt
 │
@@ -190,12 +180,24 @@ RateThrottle/
 │   ├── regression_main.cpp
 │   └── CMakeLists.txt
 │
+├── packaging/
+│   ├── README.md
+│   ├── recipes/
+│   │   └── ratethrottle/
+│   ├── vcpkg/
+│   │   └── ports/
+│   │       └── ratethrottle/
+│   └── vcpkg-smoke-test/
+│
+├── scripts/
+│   └── update_package_files.py
+│
 ├── .github/
 │   ├── releases/
 │   └── workflows/
 │
 ├── cmake/
-│   └── RateThrottleConfig.cmake.in
+│   └── ThrottleProConfig.cmake.in
 │
 ├── docs/
 │   ├── Doxyfile
