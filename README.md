@@ -239,6 +239,9 @@ ctest --test-dir build
 correctly outranks `v1.9.0`), not alphabetical filename order, and
 auto-names its output (`regression_v1.2.0_vs_current.md`/`.json`, etc.).
 
+See [packaging/README.md](packaging/README.md) for notes on verifying the vcpkg
+port and Conan recipe locally.
+
 ## <a id="benchmarks"></a>📊 Benchmarks
 
 RateThrottle has no naive baseline to compare against — there is no
