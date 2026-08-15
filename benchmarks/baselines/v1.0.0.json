@@ -1,0 +1,191 @@
+[
+  {
+    "suite": "Contention",
+    "operation": "allow() contention",
+    "total_ns": 10871769,
+    "iterations": 10000,
+    "ns_per_op": 1087.18
+  },
+  {
+    "suite": "Contention",
+    "operation": "allow() contention",
+    "total_ns": 279965846,
+    "iterations": 100000,
+    "ns_per_op": 2799.66
+  },
+  {
+    "suite": "Contention",
+    "operation": "allow() contention",
+    "total_ns": 2663009231,
+    "iterations": 1000000,
+    "ns_per_op": 2663.01
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() new key",
+    "total_ns": 5588539,
+    "iterations": 10000,
+    "ns_per_op": 558.85
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() new key",
+    "total_ns": 50669846,
+    "iterations": 100000,
+    "ns_per_op": 506.70
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() new key",
+    "total_ns": 489871077,
+    "iterations": 1000000,
+    "ns_per_op": 489.87
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() within window",
+    "total_ns": 1640000,
+    "iterations": 10000,
+    "ns_per_op": 164.00
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() within window",
+    "total_ns": 16070539,
+    "iterations": 100000,
+    "ns_per_op": 160.71
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() within window",
+    "total_ns": 160121615,
+    "iterations": 1000000,
+    "ns_per_op": 160.12
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() deny",
+    "total_ns": 1639308,
+    "iterations": 10000,
+    "ns_per_op": 163.93
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() deny",
+    "total_ns": 16476000,
+    "iterations": 100000,
+    "ns_per_op": 164.76
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() deny",
+    "total_ns": 164824539,
+    "iterations": 1000000,
+    "ns_per_op": 164.82
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() window reset",
+    "total_ns": 1114230,
+    "iterations": 10000,
+    "ns_per_op": 111.42
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() window reset",
+    "total_ns": 11190077,
+    "iterations": 100000,
+    "ns_per_op": 111.90
+  },
+  {
+    "suite": "Allow",
+    "operation": "allow() window reset",
+    "total_ns": 111753770,
+    "iterations": 1000000,
+    "ns_per_op": 111.75
+  },
+  {
+    "suite": "Construction",
+    "operation": "construction",
+    "total_ns": 11511461,
+    "iterations": 1,
+    "ns_per_op": 11511461.00
+  },
+  {
+    "suite": "Construction",
+    "operation": "construction",
+    "total_ns": 113861462,
+    "iterations": 10,
+    "ns_per_op": 11386146.20
+  },
+  {
+    "suite": "Construction",
+    "operation": "construction",
+    "total_ns": 1104954770,
+    "iterations": 100,
+    "ns_per_op": 11049547.70
+  },
+  {
+    "suite": "Capacity Scaling",
+    "operation": "allow() small capacity",
+    "total_ns": 2808615,
+    "iterations": 10000,
+    "ns_per_op": 280.86
+  },
+  {
+    "suite": "Capacity Scaling",
+    "operation": "allow() small capacity",
+    "total_ns": 27530154,
+    "iterations": 100000,
+    "ns_per_op": 275.30
+  },
+  {
+    "suite": "Capacity Scaling",
+    "operation": "allow() small capacity",
+    "total_ns": 337753307,
+    "iterations": 1000000,
+    "ns_per_op": 337.75
+  },
+  {
+    "suite": "Capacity Scaling",
+    "operation": "allow() large capacity",
+    "total_ns": 4501846,
+    "iterations": 10000,
+    "ns_per_op": 450.18
+  },
+  {
+    "suite": "Capacity Scaling",
+    "operation": "allow() large capacity",
+    "total_ns": 45707616,
+    "iterations": 100000,
+    "ns_per_op": 457.08
+  },
+  {
+    "suite": "Capacity Scaling",
+    "operation": "allow() large capacity",
+    "total_ns": 528994539,
+    "iterations": 1000000,
+    "ns_per_op": 528.99
+  },
+  {
+    "suite": "Eviction Pressure",
+    "operation": "allow() eviction pressure",
+    "total_ns": 3029616,
+    "iterations": 10000,
+    "ns_per_op": 302.96
+  },
+  {
+    "suite": "Eviction Pressure",
+    "operation": "allow() eviction pressure",
+    "total_ns": 73795000,
+    "iterations": 100000,
+    "ns_per_op": 737.95
+  },
+  {
+    "suite": "Eviction Pressure",
+    "operation": "allow() eviction pressure",
+    "total_ns": 1166496923,
+    "iterations": 1000000,
+    "ns_per_op": 1166.50
+  }
+]
