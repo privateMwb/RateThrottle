@@ -1,0 +1,11 @@
+{
+  "name": "throttlepro",
+  "version": "1.0.0",
+  "description": "Framework-agnostic fixed-window rate limiter for C++, backed by an LRU cache for bounded per-key state.",
+  "homepage": "https://github.com/privateMwb/RateThrottle",
+  "license": "MIT",
+  "dependencies": [
+    "vcpkg-cmake",
+    "vcpkg-cmake-config"
+  ]
+}
