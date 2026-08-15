@@ -117,7 +117,7 @@ cat > main.cpp << 'EOF'
 #include <chrono>
 int main() {
     rain::RateLimiter limiter(3, std::chrono::milliseconds(1000), 8);
-    limiter.allow("smoke-test-key");
+    (void)limiter.allow("smoke-test-key");
     return 0;
 }
 EOF
@@ -192,7 +192,7 @@ cat > main.cpp << 'EOF'
 #include <chrono>
 int main() {
     rain::RateLimiter limiter(3, std::chrono::milliseconds(1000), 8);
-    limiter.allow("smoke-test-key");
+    (void)limiter.allow("smoke-test-key");
     return 0;
 }
 EOF
