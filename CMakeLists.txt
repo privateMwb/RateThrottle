@@ -112,10 +112,8 @@ file(GLOB_RECURSE LIB_SOURCES CONFIGURE_DEPENDS
 list(APPEND LIB_SOURCES ${SUBMODULE_SOURCES})
 
 if(LIB_SOURCES)
-    # Sources found (Database.cpp, Table.cpp, Page.cpp, Record.cpp,
-    # QueryEngine.cpp, Concurrency.cpp, Serializer.cpp, StorageEngine.cpp,
-    # etc., plus any compiled submodule sources): build a real compiled
-    # static library.
+    # Sources found under src/${PROJECT_NAME}/, plus any compiled submodule
+    # sources: build a real compiled static library.
     add_library(
         ${PROJECT_NAME}
         STATIC
@@ -135,7 +133,7 @@ if(LIB_SOURCES)
             cxx_std_23
     )
 
-    set(MINIDB_VISIBILITY PUBLIC)
+    set(${PROJECT_NAME}_VISIBILITY PUBLIC)
 else()
     # No sources: header-only library, INTERFACE target.
     add_library(
@@ -156,7 +154,7 @@ else()
             cxx_std_23
     )
 
-    set(MINIDB_VISIBILITY INTERFACE)
+    set(${PROJECT_NAME}_VISIBILITY INTERFACE)
 endif()
 
 # Expose each submodule include directory individually.
@@ -166,13 +164,13 @@ endif()
 # semicolons before the genex is evaluated, corrupting the first entry.
 # Looping and wrapping one path per call keeps each genex well-formed.
 #
-# MINIDB_VISIBILITY matches whichever branch above actually ran: PUBLIC
-# for the compiled STATIC case, INTERFACE for the header-only case (an
-# INTERFACE target cannot use PUBLIC/PRIVATE).
+# ${PROJECT_NAME}_VISIBILITY matches whichever branch above actually ran:
+# PUBLIC for the compiled STATIC case, INTERFACE for the header-only case
+# (an INTERFACE target cannot use PUBLIC/PRIVATE).
 foreach(dir ${SUBMODULE_INCLUDE_DIRS})
     target_include_directories(
         ${PROJECT_NAME}
-        ${MINIDB_VISIBILITY}
+        ${${PROJECT_NAME}_VISIBILITY}
         $<BUILD_INTERFACE:${dir}>
     )
 endforeach()

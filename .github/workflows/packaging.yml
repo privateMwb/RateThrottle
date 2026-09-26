@@ -8,11 +8,11 @@
 # and vcpkg-smoke-test/ rather than reimplemented here, so there's one
 # place -- not two -- that defines what "the package works" means.
 #
-# ThrottlePro's own recipe/port declares one dependency (LRUCache).
-# This workflow doesn't need to know that -- conan create / vcpkg both
-# resolve ThrottlePro's declared requirements automatically -- but it
-# does mean a failure here can originate from that dependency's
-# package, not just ThrottlePro's own recipe.
+# Unlike this author's other libraries, RateThrottle depends on one of
+# them -- CachePro -- for its LRU cache. This workflow doesn't need to
+# know that; conan create / vcpkg both resolve RateThrottle's declared
+# requirements automatically. It does mean a failure here can originate
+# from CachePro's package, not just RateThrottle's own recipe.
 # ============================================================
 
 name: Packaging
@@ -30,6 +30,9 @@ on:
       - "conandata.yml"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   # ------------------------------------------------------------
   # conan create builds the package, then automatically builds and
@@ -40,15 +43,25 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.x"
 
       - name: Install Conan
-        run: pip install conan
+        # Real hash-pinning, not just a version pin: every package conan
+        # actually pulls in transitively (requests, PyYAML, Jinja2, ...)
+        # is pinned by sha256 too, generated for real via `pip-compile
+        # --generate-hashes` against PyPI (not hand-written) and verified
+        # to actually install clean with `pip install --require-hashes`
+        # before being committed here. To bump the conan version: edit
+        # packaging/requirements.in, then regenerate with:
+        #   pip-compile --generate-hashes \
+        #     --output-file=packaging/requirements.txt \
+        #     packaging/requirements.in
+        run: pip install --require-hashes -r packaging/requirements.txt
 
       - name: Detect default profile
         run: conan profile detect --force
@@ -77,9 +90,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          submodules: true
+          submodules: recursive
 
       - name: Bootstrap vcpkg
         run: |
@@ -92,7 +105,7 @@ jobs:
           cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=/tmp/vcpkg/scripts/buildsystems/vcpkg.cmake
           cmake --build build
 
-      - name: Show ThrottlePro build logs
+      - name: Show RateThrottle build logs
         if: failure()
         run: |
           echo "===== OUT ====="
