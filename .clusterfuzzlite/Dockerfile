@@ -13,10 +13,12 @@ FROM gcr.io/oss-fuzz-base/base-builder@sha256:8b4a73d83374b298a0a771eeec9a1d44ce
 
 COPY . $SRC/RateThrottle
 
-# Adjust the ref (branch/tag/commit) to whatever CachePro version
-# RateThrottle is actually built against.
+# CachePro is the library's namespace/alias -- the actual repo is named
+# LRUCache (see the Dependencies table in README.md). Adjust the ref
+# (branch/tag/commit) to whatever version RateThrottle is actually built
+# against.
 RUN git clone --depth 1 --branch main \
-    https://github.com/privateMwb/CachePro.git $SRC/CachePro
+    https://github.com/privateMwb/LRUCache.git $SRC/CachePro
 
 COPY .clusterfuzzlite/build.sh $SRC/
 
