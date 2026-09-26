@@ -1,11 +1,18 @@
-# RateThrottle
-
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/privateMwb/RateThrottle?style=for-the-badge&logo=github&color=yellow" alt="Version">
-  <img src="https://img.shields.io/badge/License-MIT-orange?style=for-the-badge" alt="License - MIT">
-  <img src="https://img.shields.io/badge/C%2B%2B-23-blue?style=for-the-badge&logo=c%2B%2B" alt="C++ - 23">
+  <img src=".github/assets/banner.svg" alt="RateThrottle" width="100%">
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/github/v/release/privateMwb/RateThrottle?style=for-the-badge&logo=github&color=A3E635&labelColor=07090A" alt="Version">
+  <img src="https://img.shields.io/badge/License-MIT-C154D8?style=for-the-badge&labelColor=07090A" alt="License - MIT">
+  <img src="https://img.shields.io/badge/C%2B%2B-23-D946EF?style=for-the-badge&labelColor=07090A" alt="C++ - 23">
+</p>
+
+<p align="center">
+  <img src=".github/assets/divider.svg" alt="" width="100%">
+</p>
+
+<p align="center"><sub><b>CI / CD</b></sub></p>
 <p align="center">
   <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/build.yml">
     <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/build.yml/badge.svg" alt="Build and Test">
@@ -13,6 +20,16 @@
   <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/benchmark.yml">
     <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/benchmark.yml/badge.svg" alt="Benchmarks">
   </a>
+  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/packaging.yml">
+    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/packaging.yml/badge.svg" alt="Packaging">
+  </a>
+  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/release.yml">
+    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/release.yml/badge.svg" alt="Release">
+  </a>
+</p>
+
+<p align="center"><sub><b>Code Quality &amp; Safety</b></sub></p>
+<p align="center">
   <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/coverage.yml">
     <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/coverage.yml/badge.svg" alt="Coverage">
   </a>
@@ -25,17 +42,29 @@
   <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/clang-format.yml">
     <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/clang-format.yml/badge.svg" alt="Clang Format">
   </a>
-  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/docs.yml">
-    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/docs.yml/badge.svg" alt="Documentation">
+  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/codeql.yml">
+    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/codeql.yml/badge.svg" alt="CodeQL">
   </a>
-  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/release.yml">
-    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/release.yml/badge.svg" alt="Release">
+  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/cflite_pr.yml">
+    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/cflite_pr.yml/badge.svg" alt="Fuzzing">
   </a>
-  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/packaging.yml">
-    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/packaging.yml/badge.svg" alt="Packaging">
+  <a href="https://www.bestpractices.dev/projects/14950">
+    <img src="https://www.bestpractices.dev/projects/14950/badge" alt="OpenSSF Best Practices">
   </a>
 </p>
 
+<p align="center"><sub><b>Documentation</b></sub></p>
+<p align="center">
+  <a href="https://github.com/privateMwb/RateThrottle/actions/workflows/docs.yml">
+    <img src="https://github.com/privateMwb/RateThrottle/actions/workflows/docs.yml/badge.svg" alt="Documentation">
+  </a>
+</p>
+
+<p align="center">
+  <img src=".github/assets/divider.svg" alt="" width="100%">
+</p>
+
+<p align="center"><sub><b>Compiler Support</b></sub></p>
 <p align="center">
   <img src="https://img.shields.io/badge/GCC-support-B46F1B?style=flat&logo=gnu" alt="GCC - support">
   <img src="https://img.shields.io/badge/Clang-support-045891?style=flat&logo=llvm" alt="Clang - support">
@@ -43,7 +72,13 @@
   <img src="https://img.shields.io/badge/AppleClang-support-000000?style=flat&logo=apple" alt="AppleClang - support">
 </p>
 
-RateThrottle is a framework-agnostic C++ fixed-window rate limiter — no knowledge of HTTP, requests, or middleware, just `allow(key, now)` — backed by this author's own LRU cache library.
+<p align="center">
+  <img src=".github/assets/divider.svg" alt="" width="100%">
+</p>
+
+<p align="center">RateThrottle is a framework-agnostic C++ fixed-window rate limiter — no knowledge of HTTP, requests, or middleware, just `allow(key, now)` — backed by this author's own LRU cache library.</p>
+
+<br>
 
 ## 📑 Table of Contents
 
@@ -55,10 +90,14 @@ RateThrottle is a framework-agnostic C++ fixed-window rate limiter — no knowle
 - [Project Structure](#project-structure)
 - [Development](#development)
 - [Benchmarks](#benchmarks)
+- [Fuzzing](#fuzzing)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
 - [Changelog](#changelog)
+- [Security](#security)
 - [License](#license)
+
+<br>
 
 ## <a id="features"></a>✨ Features
 
@@ -69,11 +108,15 @@ RateThrottle is a framework-agnostic C++ fixed-window rate limiter — no knowle
 - **Runtime-configurable limits** — requests-per-window, window duration, and cache capacity are constructor parameters, not hardcoded constants.
 - **Honestly documented trade-offs** — the fixed-window algorithm's known ~2x boundary-burst behavior, and the LRU-eviction-mid-window edge case (an evicted-but-active key's window silently restarting), are both tested and documented rather than hidden.
 
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
+
 ## <a id="requirements"></a>📋 Requirements
 
 - A C++23-conformant compiler (tested: GCC, Clang, MSVC, AppleClang)
 - CMake 3.20+
-- Git submodules initialized — RateThrottle is a consumer of `CachePro` (see [Dependencies](#dependencies)) and needs its source present to build from source
+- Git submodules initialized — unlike this author's other, dependency-free libraries, RateThrottle is a consumer of `CachePro` (see [Dependencies](#dependencies)) and needs its source present to build from source
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="dependencies"></a>🔗 Dependencies
 
@@ -82,6 +125,8 @@ RateThrottle is built on this author's own `CachePro`, vendored as a git submodu
 | Library | Provides | Repository |
 |---|---|---|
 | CachePro | `LRUCache<K,V>`, backing `RateLimiter`'s per-key window tracking | [privateMwb/LRUCache](https://github.com/privateMwb/LRUCache) |
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="installation"></a>📦 Installation
 
@@ -104,6 +149,13 @@ Then, in your own `CMakeLists.txt`:
 find_package(RateThrottle CONFIG REQUIRED)
 target_link_libraries(your_target PRIVATE RateThrottle::RateThrottle)
 ```
+
+> vcpkg and Conan packages are built and verified (recipe in
+> `packaging/recipes/ratethrottle/`, port in `packaging/vcpkg/ports/ratethrottle/`),
+> but not yet published to the public registries. This section will be
+> updated once they are.
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="quick-start"></a>🚀 Quick Start
 
@@ -144,6 +196,8 @@ limiter.allow("client", now); // 3rd request: denied
 limiter.allow("client", now + std::chrono::milliseconds(1001)); // window expired: allowed again
 ```
 
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
+
 ## <a id="project-structure"></a>🗂️ Project Structure
 
 ```
@@ -161,16 +215,18 @@ RateThrottle/
 │       └── CachePro/
 │
 ├── tests/
-│   ├── support/
-│   ├── suite/
-│   ├── test_main.cpp
-│   └── CMakeLists.txt
+│   ├── custom/
+│   ├── google/
+│   ├── CMakeLists.txt
+│   └── README.md
 │
 ├── benchmarks/
-│   ├── support/
-│   ├── suite/
-│   ├── bench_main.cpp
-│   └── CMakeLists.txt
+│   ├── custom/
+│   ├── google/
+│   ├── baselines/
+│   ├── results/
+│   ├── CMakeLists.txt
+│   └── README.md
 │
 ├── examples/
 │   ├── support/
@@ -179,25 +235,37 @@ RateThrottle/
 │   └── CMakeLists.txt
 │
 ├── regression/
-│   ├── support/
-│   ├── regression_main.cpp
-│   └── CMakeLists.txt
+│   ├── custom/
+│   ├── google/
+│   ├── results/
+│   ├── CMakeLists.txt
+│   └── README.md
+│
+├── fuzz/
+│   └── fuzz_rate_limiter.cpp
+│
+├── .clusterfuzzlite/
+│   ├── Dockerfile
+│   ├── build.sh
+│   └── project.yaml
 │
 ├── packaging/
 │   ├── README.md
+│   ├── requirements.in
+│   ├── requirements.txt
 │   ├── recipes/
-│   │   └── ratethrottle/
 │   ├── vcpkg/
-│   │   └── ports/
-│   │       └── ratethrottle/
 │   └── vcpkg-smoke-test/
 │
 ├── scripts/
 │   └── update_package_files.py
 │
 ├── .github/
+│   ├── assets/
 │   ├── releases/
-│   └── workflows/
+│   ├── workflows/
+│   ├── CODEOWNERS
+│   └── dependabot.yml
 │
 ├── cmake/
 │   └── ThrottleProConfig.cmake.in
@@ -206,11 +274,19 @@ RateThrottle/
 │   ├── Doxyfile
 │   └── README.md
 │
+├── .clang-format
+├── .clang-tidy
 ├── .gitignore
 ├── CMakeLists.txt
 ├── README.md
+├── CONTRIBUTING.md
+├── CHANGELOG.md
+├── SECURITY.md
+├── FUZZING.md
 └── LICENSE
 ```
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="development"></a>🛠️ Development
 
@@ -243,7 +319,10 @@ correctly outranks `v1.9.0`), not alphabetical filename order, and
 auto-names its output (`regression_v1.2.0_vs_current.md`/`.json`, etc.).
 
 See [packaging/README.md](packaging/README.md) for notes on verifying the vcpkg
-port and Conan recipe locally.
+port and Conan recipe locally, and [FUZZING.md](FUZZING.md) for running the
+fuzz harness locally.
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="benchmarks"></a>📊 Benchmarks
 
@@ -273,11 +352,46 @@ whole cache, hammered by four background threads on the same key, is by
 far the most expensive path measured — the direct, now-measured cost of
 not sharding the lock per key in v1.
 
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
+
+## <a id="fuzzing"></a>🐛 Fuzzing
+
+`ThrottlePro::RateLimiter::allow()` is fuzzed via
+[ClusterFuzzLite](https://google.github.io/clusterfuzzlite/), under
+AddressSanitizer and UndefinedBehaviorSanitizer. A 5-minute pass runs on
+every PR touching `RateLimiter` or the harness; a one-hour batch pass
+runs nightly.
+
+`fuzz_rate_limiter` is a differential fuzzer, checked after every single
+`allow()` call against a shadow model implementing the same fixed-window
+algorithm directly, so a failing input localizes to the exact call that
+broke an invariant. Time is fully fuzzer-controlled — a synthetic clock
+advances by fuzzer-chosen deltas biased toward landing exactly on, or one
+tick either side of, the window boundary, since that's exactly where a
+fixed-window off-by-one would hide. Keys are split into a fixed "steady"
+pool sized to the configured cache capacity (never evicted, so the shadow
+model's predictions stay exact) and an "overflow" pool that deliberately
+forces real `CachePro::LRUCache` eviction, checked only for the one
+invariant that must hold regardless of eviction: `requestsPerWindow == 0`
+always denies.
+
+Concurrent `allow()` calls from multiple threads are deliberately not
+covered by this harness — libFuzzer's single-threaded-per-input model
+can't exercise `RateLimiter`'s internal mutex as a thread-safety claim,
+which is left to a dedicated ThreadSanitizer-based test instead.
+
+See [FUZZING.md](FUZZING.md) for running the harness locally and
+reproducing a failing input.
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
+
 ## <a id="documentation"></a>📖 Documentation
 
 Full API reference, generated with Doxygen from `docs/Doxyfile`:
 
 **https://privateMwb.github.io/RateThrottle/**
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="contributing"></a>🤝 Contributing
 
@@ -286,12 +400,35 @@ Issues and pull requests are welcome. Before submitting a PR:
 - Run the test suite (`ctest --test-dir build`)
 - If you're changing a hot path, run `./build/regression` and mention
   the results in your PR description
+- If you're changing `RateLimiter::allow()`'s window logic, a quick
+  local fuzz pass (see [FUZZING.md](FUZZING.md)) before pushing catches most
+  fixed-window edge-case regressions before CI does
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
 
 ## <a id="changelog"></a>📝 Changelog
 
 See the [Releases](https://github.com/privateMwb/RateThrottle/releases)
 page for version history and release notes.
 
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
+
+## <a id="security"></a>🔒 Security
+
+Please don't report a suspected vulnerability in a public issue. Use
+GitHub's private reporting instead — this repository's **Security** tab,
+then **Report a vulnerability** — so it can be fixed before it's disclosed.
+
+<div align="right"><a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a></div>
+
 ## <a id="license"></a>📄 License
 
 MIT — see [LICENSE](LICENSE) for details.
+
+<p align="center">
+  <sub>Built with C++23</sub>
+</p>
+
+<p align="center">
+  <a href="#-table-of-contents"><img src=".github/assets/back-to-top.svg" alt="Back to top" height="28"></a>
+</p>
