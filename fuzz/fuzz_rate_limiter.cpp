@@ -11,7 +11,13 @@
 // window legitimately (and by design, see RateLimiter.h) resets,
 // which the shadow model has no way to predict without duplicating
 // CachePro::LRUCache's own eviction-order logic. So this harness
-// keeps two separate modes instead of trying to fake that:
+// keeps two separate modes instead of trying to fake that -- each
+// backed by its OWN RateLimiter instance, so the two pools never
+// contend for the same cache slots (an early version of this harness
+// shared one instance across both pools; overflow-key insertions
+// could then evict a "steady" key the shadow model assumed was
+// eviction-proof, producing a false-positive mismatch that had
+// nothing to do with RateLimiter itself):
 //
 //   - "steady" keys, drawn from a fixed pool no larger than the
 //     configured cache capacity, so no eviction is ever possible for
@@ -107,12 +113,18 @@ extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* data, std::size_t size
     data += 3;
     size -= 3;
 
-    RateLimiter limiter(requestsPerWindow, windowDuration, cacheCapacity);
+    // Separate instances -- and separate underlying caches -- for each
+    // pool. steadyLimiter is only ever touched by steadyKeys (see
+    // below), so it can never need to evict; overflowLimiter absorbs
+    // all the eviction pressure instead, without threatening that
+    // guarantee.
+    RateLimiter steadyLimiter(requestsPerWindow, windowDuration, cacheCapacity);
+    RateLimiter overflowLimiter(requestsPerWindow, windowDuration, cacheCapacity);
     std::unordered_map<std::string, ShadowWindow> shadow;
 
     // Steady key pool sized exactly to cacheCapacity: as long as only
-    // these keys are used, the real cache can never need to evict, so
-    // the shadow model's predictions stay exact.
+    // these keys are used against steadyLimiter, its cache can never
+    // need to evict, so the shadow model's predictions stay exact.
     std::string steadyKeys[8];
     for (std::size_t i = 0; i < cacheCapacity; ++i)
         steadyKeys[i] = "steady-" + std::to_string(i);
@@ -151,14 +163,14 @@ extern "C" int LLVMFuzzerTestOneInput(const std::uint8_t* data, std::size_t size
 
         if (useOverflowKey) {
             const std::string key = "overflow-" + std::to_string(overflowCounter++);
-            const bool realResult = limiter.allow(key, now);
+            const bool realResult = overflowLimiter.allow(key, now);
 
             // The only thing guaranteed regardless of eviction.
             if (requestsPerWindow == 0 && realResult)
                 std::abort();
         } else {
             const std::string& key = steadyKeys[byte % cacheCapacity];
-            const bool realResult = limiter.allow(key, now);
+            const bool realResult = steadyLimiter.allow(key, now);
             const bool shadowResult = shadowAllow(shadow, requestsPerWindow, windowDuration, key, now);
 
             if (realResult != shadowResult)

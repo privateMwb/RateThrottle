@@ -20,7 +20,9 @@ one tick either side of, the window boundary — that's exactly where a
 fixed-window off-by-one would hide.
 
 The shadow model is only reliable for keys that can't be evicted, so
-the harness splits keys into two pools:
+the harness runs two separate `RateLimiter` instances — each with its
+own cache, so the two pools below never compete for the same cache
+slots and can't evict each other:
 
 - **Steady keys**, drawn from a fixed pool no larger than the
   configured cache capacity. Since the real `LRUCache` can never need
