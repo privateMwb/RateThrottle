@@ -4,8 +4,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/v/release/privateMwb/RateThrottle?style=for-the-badge&logo=github&color=A3E635&labelColor=07090A" alt="Version">
-  <img src="https://img.shields.io/badge/License-MIT-C154D8?style=for-the-badge&labelColor=07090A" alt="License - MIT">
-  <img src="https://img.shields.io/badge/C%2B%2B-23-D946EF?style=for-the-badge&labelColor=07090A" alt="C++ - 23">
+  <img src="https://img.shields.io/badge/License-MIT-D946EF?style=for-the-badge&labelColor=07090A" alt="License - MIT">
+  <img src="https://img.shields.io/badge/C%2B%2B-23-6B21A8?style=for-the-badge&labelColor=07090A" alt="C++ - 23">
 </p>
 
 <p align="center">
