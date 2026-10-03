@@ -9,7 +9,7 @@
 # repo's fuzzing CI.
 # ============================================================
 
-FROM gcr.io/oss-fuzz-base/base-builder@sha256:e67da2b0f6156b29b62734305a8c74db61aaf3158c7ab96386a07974fb33cdc8
+FROM gcr.io/oss-fuzz-base/base-builder@sha256:fa91d623389589a099c27600abaca3d1dd31299b12715c37ce386ec27fb46f42
 
 COPY . $SRC/RateThrottle
 
