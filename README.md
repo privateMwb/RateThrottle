@@ -160,7 +160,7 @@ target_link_libraries(your_target PRIVATE RateThrottle::RateThrottle)
 ## <a id="quick-start"></a>🚀 Quick Start
 
 ```cpp
-#include <ratethrottle/RateLimiter.h>
+#include <ThrottlePro/RateLimiter.h>
 
 using namespace ThrottlePro;
 
@@ -203,11 +203,11 @@ limiter.allow("client", now + std::chrono::milliseconds(1001)); // window expire
 ```
 RateThrottle/
 ├── include/
-│   └── ratethrottle/
+│   └── ThrottlePro/
 │       └── RateLimiter.h
 │
 ├── src/
-│   └── ratethrottle/
+│   └── ThrottlePro/
 │       └── RateLimiter.cpp
 │
 ├── libs/
